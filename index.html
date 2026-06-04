@@ -1,73 +1,1252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Alvee Islam | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Md Alvee Islam (Alvee Meerza) | Business Analyst & Researcher</title>
     
-    <!-- Paste your Google Analytics (gtag.js) script right here later -->
+    <!-- SEO Optimization Meta Tags -->
+    <meta name="description" content="Portfolio of Md Alvee Islam (Alvee Meerza) - Business Analyst, Researcher, and Musician based in Dhaka, Bangladesh. President of Rotaract Club of Uttara.">
+    <meta name="keywords" content="Md Alvee Islam, Alvee Meerza, Alvee, Business Analyst, Researcher, Dhaka, East West University, Power BI, Rotaract Club of Uttara, Karate Black Belt, Musician">
+    <meta name="author" content="Md Alvee Islam">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        canvas: '#F9FBFD',
+                        charcoal: '#111827',
+                        accentIndigo: '#4F46E5',
+                        accentTeal: '#0EA5E9',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tone.js for Ambient Audio Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    
+    <style>
+        /* Smooth, premium transitions and custom editorial styles */
+        .editorial-grid {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+        .watermark-text {
+            user-select: none;
+            pointer-events: none;
+            font-size: 14vw;
+            line-height: 1;
+            font-weight: 900;
+            color: rgba(17, 24, 39, 0.02);
+            letter-spacing: -0.05em;
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+        /* Custom print styling for downloading CV directly as clean layout */
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-canvas text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accentIndigo selection:text-white">
 
-    <!-- Header Navigation -->
-    <header>
-        <nav>
-            <div class="logo">Alvee Islam</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
+<!-- Header / Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-canvas/80 backdrop-blur-md border-b border-gray-200/60 no-print">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <!-- Logo / Brand Signature -->
+        <a href="#home" class="flex flex-col">
+            <span class="text-sm font-black tracking-widest uppercase">M. A. ISLAM</span>
+            <span class="text-[10px] text-gray-500 tracking-wider">ANALYST & LEADER</span>
+        </a>
+        
+        <!-- Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-10 text-xs font-semibold uppercase tracking-widest text-gray-600">
+            <a href="#about" class="hover:text-accentIndigo transition-colors duration-200">About Me</a>
+            <a href="#experience" class="hover:text-accentIndigo transition-colors duration-200">Experience</a>
+            <a href="#toolkit" class="hover:text-accentIndigo transition-colors duration-200">Skills</a>
+            <a href="#projects" class="hover:text-accentIndigo transition-colors duration-200">Projects & BI</a>
+            <a href="#beyond" class="hover:text-accentIndigo transition-colors duration-200">Beyond Analytics</a>
         </nav>
-    </header>
+        
+        <!-- Action Trigger -->
+        <div class="flex items-center space-x-4">
+            <button onclick="window.print()" class="text-xs font-semibold uppercase tracking-wider bg-charcoal hover:bg-accentIndigo text-white py-2.5 px-5 rounded-md transition-all duration-300 transform hover:-translate-y-0.5 shadow-md flex items-center gap-2">
+                Download CV <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+        </div>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Data Analyst & Marketer</h1>
-        <p>Bridging the gap between numbers and strategy. I transform complex datasets into actionable business intelligence to drive operational performance and growth.</p>
-    </section>
+<!-- Background Watermarks / Structural Lines -->
+<div class="absolute inset-0 editorial-grid opacity-30 pointer-events-none z-0"></div>
+<div class="fixed top-40 left-10 pointer-events-none z-0 hidden lg:block select-none">
+    <div class="watermark-text rotate-90 origin-top-left transform translate-y-96">ANALYTICS</div>
+</div>
+<div class="fixed top-1/2 right-10 pointer-events-none z-0 hidden lg:block select-none">
+    <div class="watermark-text uppercase">LEADER</div>
+</div>
 
-    <!-- About Me Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Graduating with a Bachelor of Business Administration (BBA) and double-majoring in Management Information Systems (MIS) and Marketing from East West University, I developed a deep fascination with how structured data can radically improve corporate decision-making and marketing performance.</p>
-    </section>
+<!-- MAIN WORKSPACE -->
+<main class="relative z-10 pt-20">
 
-    <!-- Areas of Expertise -->
-    <section id="expertise" class="section">
-        <h2>Areas of Expertise</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>🛠️ Professional</h3>
-                <ul>
-                    <li><strong>Technical Stack:</strong> Advanced Excel, Power BI, SQL, Python, Notion Systems</li>
-                    <li><strong>Capabilities:</strong> Data Cleaning, Interpretation, Visualization, Process Mapping, Inventory Tracking</li>
-                </ul>
+    <!-- SECTION 1: HOME / HERO (HIGH-IMPACT INTRO) -->
+    <section id="home" class="min-h-screen flex flex-col justify-center relative px-6 py-12 max-w-7xl mx-auto border-b border-gray-200">
+        
+        <!-- High-Visibility KPI Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-b border-gray-200/80 pb-8 mt-12 md:mt-0">
+            <div class="p-6 bg-white/40 border border-gray-200/60 rounded-lg backdrop-blur-sm">
+                <span class="block text-4xl font-extrabold text-charcoal tracking-tight">+12</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500 font-semibold block mt-1">Projects Managed</span>
             </div>
-            <div class="card">
-                <h3>🎨 Passions & Hobbies</h3>
-                <ul>
-                    <li><strong>Martial Arts:</strong> Karate Black Belt (Discipline & Focus)</li>
-                    <li><strong>Music:</strong> Vocalist, Guitarist & Violinist (Structural Harmony)</li>
-                    <li><strong>Creative Media:</strong> Video Editing & Graphic Design</li>
-                </ul>
+            <div class="p-6 bg-white/40 border border-gray-200/60 rounded-lg backdrop-blur-sm">
+                <span class="block text-4xl font-extrabold text-charcoal tracking-tight">500+</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500 font-semibold block mt-1">Beneficiaries Impacted</span>
+            </div>
+            <div class="p-6 bg-white/40 border border-gray-200/60 rounded-lg backdrop-blur-sm">
+                <span class="block text-4xl font-extrabold text-charcoal tracking-tight">1st Dan</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500 font-semibold block mt-1">Karate Black Belt</span>
+            </div>
+            <div class="p-6 bg-white/40 border border-gray-200/60 rounded-lg backdrop-blur-sm">
+                <span class="block text-4xl font-extrabold text-charcoal tracking-tight">7+ Yrs</span>
+                <span class="text-xs uppercase tracking-wider text-gray-500 font-semibold block mt-1">Rotaract Service</span>
+            </div>
+        </div>
+
+        <!-- Hero Content Assembly -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side Editorial Copy -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-accentIndigo/10 text-accentIndigo text-xs font-bold px-3 py-1 rounded-full w-fit uppercase tracking-widest">
+                    <span class="relative flex h-2 w-2 mr-1">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accentIndigo opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-accentIndigo"></span>
+                    </span>
+                    Available for Strategic Roles
+                </div>
+                
+                <h1 class="text-7xl sm:text-9xl font-black text-charcoal tracking-tighter leading-none select-none">
+                    Hello<span class="text-accentIndigo">.</span>
+                </h1>
+                
+                <h2 class="text-xl sm:text-2xl font-light text-gray-700 leading-relaxed border-l-4 border-accentIndigo pl-4 max-w-2xl">
+                    It's <span class="font-bold text-charcoal">Md Alvee Islam</span> — Business Analyst & Researcher <span class="italic text-gray-500">— Musician by passion</span>
+                </h2>
+                
+                <p class="text-gray-500 max-w-lg text-sm leading-relaxed">
+                    Bridging raw logical data metrics with real-world strategic action, community-scale non-profit management, and absolute executive precision.
+                </p>
+
+                <!-- Interactive Musical Anchor Callout -->
+                <div class="p-4 bg-white/80 border border-gray-200/60 rounded-xl max-w-md shadow-sm flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-bold text-accentIndigo block tracking-wider uppercase"><i class="fa-solid fa-guitar mr-1"></i> Interactive Music Synthesizer</span>
+                        <span class="text-xs text-gray-500">Procedurally play Md Alvee Islam's custom theme</span>
+                    </div>
+                    <button id="synthTriggerBtn" onclick="toggleAmbientMusic()" class="bg-charcoal hover:bg-accentIndigo text-white rounded-full p-3 h-11 w-11 flex items-center justify-center transition-all shadow-md">
+                        <i class="fa-solid fa-play text-sm ml-0.5" id="synthPlayIcon"></i>
+                    </button>
+                </div>
+                
+                <!-- Micro interactions and anchor links -->
+                <div class="flex items-center gap-6 pt-4">
+                    <a href="#about" class="group flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-charcoal hover:text-accentIndigo transition-colors">
+                        Discover My Journey 
+                        <i class="fa-solid fa-arrow-down-long group-hover:translate-y-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side Profile Anchor (Styled Desaturated Avatar replacing standard portrait container borders) -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="relative w-80 h-[420px] rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-50 border-2 border-gray-200 p-3 shadow-2xl overflow-hidden group">
+                    <!-- Stylized Desaturated Avatar Placeholder with dynamic data layer -->
+                    <div class="w-full h-full bg-slate-900 rounded-xl relative flex flex-col justify-end p-6 overflow-hidden">
+                        
+                        <!-- Premium Background Grid overlay inside avatar -->
+                        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+                        
+                        <!-- High Contrast Minimalist Vector representing Md Alvee Islam -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <svg class="w-4/5 h-4/5 opacity-80 filter grayscale" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="80" stroke="#4F46E5" stroke-width="2" stroke-dasharray="6 6" />
+                                <path d="M60 170 C60 120 140 120 140 170" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="100" cy="85" r="30" fill="none" stroke="#FFFFFF" stroke-width="4" />
+                                <path d="M85 85 L115 85" stroke="#4F46E5" stroke-width="3" />
+                                <circle cx="90" cy="80" r="3" fill="#4F46E5"/>
+                                <circle cx="110" cy="80" r="3" fill="#4F46E5"/>
+                                <!-- Martial arts styled collar overlay -->
+                                <path d="M85 115 L100 135 L115 115" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Data & Creative Identity Tag Layer -->
+                        <div class="relative z-10 text-white space-y-2">
+                            <span class="text-xs font-bold tracking-widest text-accentTeal uppercase block bg-white/10 w-fit px-2 py-0.5 rounded backdrop-blur-sm">Md Alvee Islam</span>
+                            <h3 class="text-xl font-extrabold tracking-tight">Alvee Meerza</h3>
+                            <p class="text-[11px] text-gray-300 leading-normal">
+                                First Dan Black Belt • Multi-Instrumentalist • Rotaract President
+                            </p>
+                            <!-- Elegant decorative barcode mimicking corporate ID -->
+                            <div class="pt-3 border-t border-white/20 flex justify-between items-center">
+                                <span class="text-[9px] font-mono tracking-widest text-gray-400">ID: EWU-MKT-MIS</span>
+                                <div class="flex gap-0.5">
+                                    <div class="w-1 h-3 bg-white"></div>
+                                    <div class="w-2 h-3 bg-white"></div>
+                                    <div class="w-0.5 h-3 bg-white"></div>
+                                    <div class="w-1 h-3 bg-white"></div>
+                                    <div class="w-1.5 h-3 bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Bottom Section Separator and Scroll Hint -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 no-print">
+            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Scroll Down</span>
+            <span class="scroll-indicator text-accentIndigo text-sm font-semibold">↓</span>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME -->
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Side Column containing section meta -->
+            <div class="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">01 / Profile Outline</span>
+                    <h2 class="text-3xl font-extrabold tracking-tight uppercase">About Me</h2>
+                    <div class="h-1 w-12 bg-accentIndigo mt-4 mb-8"></div>
+                </div>
+                <!-- Interactive Mini Timeline Focus -->
+                <div class="hidden lg:block bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+                    <span class="text-xs font-bold uppercase text-gray-400 tracking-wider">Leadership Statement</span>
+                    <p class="text-xs italic text-gray-600 mt-2 leading-relaxed">
+                        "Clarity under pressure: whether managing a team of 24 rotaractors, defending a strategic debate point, or performing on stage with an instrument."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Main Column for structured bio and education grid -->
+            <div class="lg:col-span-8 space-y-12">
+                <!-- Exact Bio Text as Requested -->
+                <div class="prose prose-lg text-gray-700 font-normal leading-relaxed text-sm sm:text-base space-y-6">
+                    <p>
+                        I'm <strong class="text-charcoal font-semibold">Md Alvee Islam</strong> — a Business Analyst, researcher, and community leader based in Dhaka, Bangladesh. Currently pursuing my undergraduate studies at East West University, I bridge analytical rigor with strategic business thinking and creative leadership.
+                    </p>
+                    <p>
+                        My work as a Business Analyst spans data analytics, business intelligence, supply chain research, and nonprofit leadership. As President of Rotaract Club of Uttara (RID 64), I've led 24 members through 12+ impactful projects reaching 500+ beneficiaries. I believe in turning data into decisions and communities into movements.
+                    </p>
+                    <p>
+                        Beyond the spreadsheet, I'm a First Dan Black Belt in Karate, a multi-instrumentalist, and a national-level debater — each discipline sharpening the same core skill: clarity under pressure.
+                    </p>
+                </div>
+
+                <!-- Education Grid -->
+                <div class="pt-8 border-t border-gray-200">
+                    <h3 class="text-lg font-bold uppercase tracking-wider text-charcoal mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-accentIndigo"></i> Academic Qualifications
+                    </h3>
+                    <div class="space-y-6">
+                        
+                        <!-- BBA Grid -->
+                        <div class="bg-white border border-gray-200/80 hover:border-accentIndigo/30 p-6 rounded-xl transition-all shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <h4 class="font-extrabold text-charcoal text-base">Bachelor of Business Administration (BBA)</h4>
+                                <span class="text-xs font-semibold bg-accentIndigo/10 text-accentIndigo px-2.5 py-1 rounded w-fit">Oct 2021 – Dec 2025</span>
+                            </div>
+                            <p class="text-xs font-bold text-gray-600">East West University</p>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-100 text-xs">
+                                <div>
+                                    <span class="text-gray-400 block uppercase">Major Focus</span>
+                                    <span class="font-bold text-gray-700">Marketing & MIS</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-400 block uppercase">CGPA Obtained</span>
+                                    <span class="font-bold text-charcoal text-sm">3.52 / 4.00</span>
+                                </div>
+                                <div class="col-span-2 md:col-span-1">
+                                    <span class="text-gray-400 block uppercase">Institutional Rank</span>
+                                    <span class="font-bold text-gray-700">Dean's Honor List / Scholarship Recipient</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary / Higher Secondary Group Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- HSC Grid -->
+                            <div class="bg-white border border-gray-200/80 p-6 rounded-xl shadow-sm">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-charcoal text-sm">Higher Secondary Certificate (HSC)</h4>
+                                    <span class="text-xs font-mono text-gray-400">2018</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-4">Milestone College</p>
+                                <div class="flex justify-between items-center text-xs pt-3 border-t border-gray-100">
+                                    <div>
+                                        <span class="text-gray-400 block">Group</span>
+                                        <span class="font-semibold text-gray-700">Business Studies</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-gray-400 block">GPA</span>
+                                        <span class="font-bold text-charcoal text-sm">4.17</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SSC Grid -->
+                            <div class="bg-white border border-gray-200/80 p-6 rounded-xl shadow-sm">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-charcoal text-sm">Secondary School Certificate (SSC)</h4>
+                                    <span class="text-xs font-mono text-gray-400">2016</span>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-4">BHBFC Ideal High School</p>
+                                <div class="flex justify-between items-center text-xs pt-3 border-t border-gray-100">
+                                    <div>
+                                        <span class="text-gray-400 block">Group</span>
+                                        <span class="font-semibold text-gray-700">Business Studies</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-gray-400 block">GPA</span>
+                                        <span class="font-bold text-charcoal text-sm">4.22</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>Data Analysis Projects</h2>
-        <div class="project-card">
-            <h3>Bank Loan Portfolio Analysis (Power BI)</h3>
-            <p>Built an interactive dashboard to track real-time performance metrics and key operational risk indicators. Analyzed Non-Performing Loans (NPL) and financial ratios to isolate inefficiencies.</p>
+    <!-- SECTION 3: ACHIEVEMENTS & HONORS (THE MILESTONE MATRIX) -->
+    <section id="achievements" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200 relative bg-white/40 backdrop-blur-md rounded-3xl my-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">02 / Recognized Merits</span>
+            <h2 class="text-3xl font-extrabold tracking-tight uppercase">Achievements & Honors</h2>
+            <div class="h-1 w-12 bg-accentIndigo mx-auto mt-4"></div>
         </div>
-        <div class="project-card">
-            <h3>E-commerce Sales Analysis (Excel)</h3>
-            <p>Developed a dynamic dashboard using pivot tables and charts to track daily order fulfillments, sales trends, and revenue patterns.</p>
+
+        <!-- Milestone Matrix Layout with elegant minimal timeline borders -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Medalist Card -->
+            <div class="relative bg-white border border-gray-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between hover:border-accentIndigo transition-all group">
+                <span class="absolute top-6 right-6 text-3xl opacity-15 text-accentIndigo font-black tracking-tighter">01</span>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-10 w-10 bg-accentIndigo/10 rounded-lg flex items-center justify-center text-accentIndigo text-lg">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-accentIndigo uppercase tracking-wider">East West University</span>
+                            <h3 class="font-black text-charcoal text-base">Medha Lalon Scholarship</h3>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Awarded for outstanding academic performance and strict CGPA maintenance in the BBA program. Demonstrates consistent analytical execution and dedication to learning and intelligence.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-400">Issue Date</span>
+                    <span class="text-xs font-bold text-charcoal">Nov 2022</span>
+                </div>
+            </div>
+
+            <!-- RTC Card -->
+            <div class="relative bg-white border border-gray-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between hover:border-accentIndigo transition-all group">
+                <span class="absolute top-6 right-6 text-3xl opacity-15 text-accentIndigo font-black tracking-tighter">02</span>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-10 w-10 bg-accentIndigo/10 rounded-lg flex items-center justify-center text-accentIndigo text-lg">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-accentIndigo uppercase tracking-wider">Rotaract Club of Agri-Varsity / BAU</span>
+                            <h3 class="font-black text-charcoal text-base">Best Camper Award</h3>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Issued by the Rotaract Club of Agri-Varsity / BAU at the 35th Rotaractors' Training Camp (RTC 2026). Awarded for overall performance, discipline, and etiquette out of a competitive cohort following successful training on Planning, Administration, and Management.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-400">Issue Date</span>
+                    <span class="text-xs font-bold text-charcoal">RTC 2026</span>
+                </div>
+            </div>
+
+            <!-- RYLA Card -->
+            <div class="relative bg-white border border-gray-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between hover:border-accentIndigo transition-all group">
+                <span class="absolute top-6 right-6 text-3xl opacity-15 text-accentIndigo font-black tracking-tighter">03</span>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-10 w-10 bg-accentIndigo/10 rounded-lg flex items-center justify-center text-accentIndigo text-lg">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-accentIndigo uppercase tracking-wider">Rotary International District 3281</span>
+                            <h3 class="font-black text-charcoal text-base">Gold & Silver Medalist (RYLA)</h3>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Awarded a Gold Medal in General Knowledge and a Silver Medal for Cultural Excellence while serving as Team Co-Leader. Recognized for high-impact presence and cross-functional administrative leadership.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-400">Issue Date</span>
+                    <span class="text-xs font-bold text-charcoal">RYLA 2024</span>
+                </div>
+            </div>
+
+            <!-- Karate Black Belt Card -->
+            <div class="relative bg-white border border-gray-200 p-8 rounded-2xl shadow-sm flex flex-col justify-between hover:border-accentIndigo transition-all group">
+                <span class="absolute top-6 right-6 text-3xl opacity-15 text-accentIndigo font-black tracking-tighter">04</span>
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-10 w-10 bg-accentIndigo/10 rounded-lg flex items-center justify-center text-accentIndigo text-lg">
+                            <i class="fa-solid fa-user-ninja"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-accentIndigo uppercase tracking-wider">Bangladesh Karate Federation</span>
+                            <h3 class="font-black text-charcoal text-base">Historic Karate Milestone (First Dan)</h3>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Recognized as the first student at East West University to achieve the rank of Black Belt (First Dan) through the Dhaka Dan Examination (Shotokan) 2025/01. Demonstrates absolute commitment, extreme work ethic, and mental grit.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+                    <span class="text-[10px] font-mono uppercase text-gray-400">Issue Date</span>
+                    <span class="text-xs font-bold text-charcoal">Jan 2025</span>
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <!-- SECTION 4: PROFESSIONAL TOOLKIT & CERTIFICATIONS -->
+    <section id="toolkit" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Side Title Column -->
+            <div class="lg:col-span-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">03 / Core Competencies</span>
+                <h2 class="text-3xl font-extrabold tracking-tight uppercase">Professional Toolkit</h2>
+                <div class="h-1 w-12 bg-accentIndigo mt-4 mb-6"></div>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    A rigorous architecture of business analysis capabilities designed to systematically extract intelligence, optimize operational frameworks, and drive organizational scale.
+                </p>
+                <!-- Quick Cert Checklist Visual -->
+                <div class="bg-gray-950 text-white rounded-xl p-6 relative overflow-hidden shadow-lg">
+                    <div class="absolute -top-12 -right-12 w-32 h-32 bg-accentTeal/10 rounded-full blur-2xl"></div>
+                    <h4 class="text-xs font-mono text-accentTeal uppercase tracking-widest mb-4">Verification Checkpoints</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-xs text-gray-300">
+                            <i class="fa-solid fa-circle-check text-accentTeal"></i> Certified Power BI Analyst
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-gray-300">
+                            <i class="fa-solid fa-circle-check text-accentTeal"></i> Google & IBM Sourced
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-gray-300">
+                            <i class="fa-solid fa-circle-check text-accentTeal"></i> Unilever Supply Chain Approved
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Grid Columns -->
+            <div class="lg:col-span-8 space-y-12">
+                
+                <!-- Skill Categorization Blocks -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Business Analysis & BI -->
+                    <div class="bg-white border border-gray-200/80 p-6 rounded-xl hover:shadow-md transition-shadow">
+                        <span class="text-xs font-extrabold text-accentIndigo uppercase tracking-wider block mb-3">Business Analysis & BI</span>
+                        <ul class="space-y-2 text-xs text-gray-600 font-semibold">
+                            <li class="flex items-center justify-between"><span>Advanced Excel</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Power BI</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>SQL Databases</span> <span class="text-accentTeal">●●●●○</span></li>
+                            <li class="flex items-center justify-between"><span>Python Modeling</span> <span class="text-accentTeal">●●●○○</span></li>
+                            <li class="flex items-center justify-between"><span>Notion Systems</span> <span class="text-accentTeal">●●●●●</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Data Architecture -->
+                    <div class="bg-white border border-gray-200/80 p-6 rounded-xl hover:shadow-md transition-shadow">
+                        <span class="text-xs font-extrabold text-accentIndigo uppercase tracking-wider block mb-3">Data Architecture</span>
+                        <ul class="space-y-2 text-xs text-gray-600 font-semibold">
+                            <li class="flex items-center justify-between"><span>Cleaning & Transf.</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Data Modeling</span> <span class="text-accentTeal">●●●●○</span></li>
+                            <li class="flex items-center justify-between"><span>Trend Analysis</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Visualizations</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Reporting Portals</span> <span class="text-accentTeal">●●●●○</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Research & Domain Expertise -->
+                    <div class="bg-white border border-gray-200/80 p-6 rounded-xl hover:shadow-md transition-shadow">
+                        <span class="text-xs font-extrabold text-accentIndigo uppercase tracking-wider block mb-3">Research & Domain</span>
+                        <ul class="space-y-2 text-xs text-gray-600 font-semibold">
+                            <li class="flex items-center justify-between"><span>Quantitative Methods</span> <span class="text-accentTeal">●●●●○</span></li>
+                            <li class="flex items-center justify-between"><span>SCM Flow Mapping</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Cost-Benefit Analysis</span> <span class="text-accentTeal">●●●●○</span></li>
+                            <li class="flex items-center justify-between"><span>Critical Debating</span> <span class="text-accentTeal">●●●●●</span></li>
+                            <li class="flex items-center justify-between"><span>Strategic Planning</span> <span class="text-accentTeal">●●●●●</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Professional Credentials & Certifications List -->
+                <div class="pt-8 border-t border-gray-200">
+                    <h3 class="text-lg font-bold uppercase tracking-wider text-charcoal mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-certificate text-accentIndigo"></i> Verified Credentials
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Microsoft Power BI Data Analyst Certificate</h4>
+                                <p class="text-[10px] text-gray-400">Microsoft Official Track</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Google Data Analytics Certificate</h4>
+                                <p class="text-[10px] text-gray-400">Coursera Verified Track</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">IBM Data Analytics Certificate</h4>
+                                <p class="text-[10px] text-gray-400">IBM Analytics Track</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Unilever Supply Chain Data Analyst Certificate</h4>
+                                <p class="text-[10px] text-gray-400">Unilever Strategic Operations</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Financial Markets – Yale University</h4>
+                                <p class="text-[10px] text-gray-400">Coursera verified credentials</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Google Project Management Certificate</h4>
+                                <p class="text-[10px] text-gray-400">Project Governance & Agile</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 bg-white border border-gray-150 rounded-xl hover:border-accentTeal transition-all items-start md:col-span-2">
+                            <div class="text-accentTeal text-xl mt-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <h4 class="text-xs font-bold text-charcoal">Graduate Training Institute (GTI) Certificate</h4>
+                                <p class="text-[10px] text-gray-400">Planning, Administration, and Management (BAU)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: EXPERIENCE TIMELINE -->
+    <section id="experience" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Column Title -->
+            <div class="lg:col-span-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">04 / Career Framework</span>
+                <h2 class="text-3xl font-extrabold tracking-tight uppercase">Experience Timeline</h2>
+                <div class="h-1 w-12 bg-accentIndigo mt-4 mb-6"></div>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    A comprehensive, seven-plus-year track of administrative duty, operations coordination, and debate governance proving execution under high pressure.
+                </p>
+            </div>
+
+            <!-- Main Timeline Stream -->
+            <div class="lg:col-span-8 relative border-l-2 border-gray-200 pl-6 sm:pl-10 ml-4 space-y-12">
+                
+                <!-- ROTARACT Timeline Block -->
+                <div class="relative">
+                    <!-- Point Indicator -->
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 bg-accentIndigo h-5 w-5 rounded-full border-4 border-white shadow-sm flex items-center justify-center">
+                        <div class="h-1 w-1 bg-white rounded-full"></div>
+                    </div>
+                    
+                    <span class="text-xs font-bold text-accentIndigo bg-accentIndigo/15 px-2.5 py-1 rounded">Jul 2025 - Present</span>
+                    <h3 class="text-xl font-extrabold text-charcoal mt-3">Rotaract Club of Uttara (RID 64)</h3>
+                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-4">7 yrs 11 mos Total Service Track</p>
+                    
+                    <!-- Roles Nesting -->
+                    <div class="space-y-4 border-l-2 border-gray-100 pl-4 mt-2 text-xs">
+                        
+                        <div class="p-4 bg-white rounded-xl border border-gray-200/60 shadow-sm">
+                            <span class="font-extrabold text-charcoal block">President (Jul 2025 – Present)</span>
+                            <p class="text-gray-500 mt-2">
+                                Led a team of 24 members by planning and coordinating 12+ projects, impacting 500+ beneficiaries. Managed end-to-end tracking and performance reporting.
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-white/70 rounded-xl border border-gray-200/60">
+                            <span class="font-bold text-charcoal block">Vice President (Jul 2023 – Jun 2025)</span>
+                            <p class="text-gray-500 mt-2 italic font-medium">
+                                Awarded Certificate of Appreciation for Executive Vice Presidency (RY 2024-25): Officially recognized for dedicated service, executive decision-making, and supporting strategic goals.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600 font-semibold">
+                            <div class="bg-gray-50 p-2.5 rounded border border-gray-150">Editor (Jul 2024 – May 2025)</div>
+                            <div class="bg-gray-50 p-2.5 rounded border border-gray-150">Professional Service Director (Jul 2023 – Jun 2024)</div>
+                            <div class="bg-gray-50 p-2.5 rounded border border-gray-150">Joint Secretary (Jul 2022 – Jun 2023)</div>
+                            <div class="bg-gray-50 p-2.5 rounded border border-gray-150">International Service Director (Jul 2021 – Jun 2022)</div>
+                            <div class="bg-gray-50 p-2.5 rounded border border-gray-150 md:col-span-2">Member (Aug 2018 – Jun 2021)</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- XOVA DIGITAL Timeline Block -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 bg-gray-400 h-5 w-5 rounded-full border-4 border-white shadow-sm"></div>
+                    
+                    <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded">Apr 2023 - Jun 2025</span>
+                    <h3 class="text-xl font-extrabold text-charcoal mt-3">Operations & Project Coordinator</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">XOVA Digital / Xova DMA (Part-time)</p>
+                    
+                    <div class="p-4 bg-white border border-gray-200/60 rounded-xl text-xs text-gray-500 space-y-2">
+                        <p>
+                            Optimized complex agency workflows using Notion workspaces to track development and delivery timelines, boosting coordination speed by 15%.
+                        </p>
+                        <p>
+                            Bridged communication gaps cross-departmentally between developers, UI/UX designers, and executive stakeholders to maintain absolute alignment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- EWUDC Timeline Block -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 bg-gray-400 h-5 w-5 rounded-full border-4 border-white shadow-sm"></div>
+                    
+                    <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded">Nov 2021 - Oct 2023</span>
+                    <h3 class="text-xl font-extrabold text-charcoal mt-3">Senior General Manager / Debater</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">East West University Debating Club (EWUDC) (Full-time)</p>
+                    
+                    <div class="p-4 bg-white border border-gray-200/60 rounded-xl text-xs text-gray-500 space-y-2">
+                        <p>
+                            Actively contributed to EWUDC through competitive debating and organizing national-scale events. Developed critical thinking and logical reasoning by bridging academic theory with practical coordination.
+                        </p>
+                        <p class="font-bold text-accentIndigo">
+                            Key Milestone: Organizer, Spree 2022 — Successfully managed coordination for this major national-level debating tournament.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- EWUTC Timeline Block -->
+                <div class="relative">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1.5 bg-gray-400 h-5 w-5 rounded-full border-4 border-white shadow-sm"></div>
+                    
+                    <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2.5 py-1 rounded">Feb 2022 - May 2025</span>
+                    <h3 class="text-xl font-extrabold text-charcoal mt-3">Senior General Member</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">East West University Telecommunications Club</p>
+                    
+                    <div class="p-4 bg-white border border-gray-200/60 rounded-xl text-xs text-gray-500">
+                        <p>
+                            Contributed to technical workshop operations, networking events, and collaborative platform engagements inside the university club structure.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: PROJECTS & RESEARCH (INTERACTIVE DATA EXPLORER) -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">05 / Interactive Dashboard</span>
+            <h2 class="text-3xl font-extrabold tracking-tight uppercase">Projects & Research Focus</h2>
+            <div class="h-1 w-12 bg-accentIndigo mx-auto mt-4"></div>
+            <p class="text-xs text-gray-400 leading-relaxed mt-4">
+                Explore fully interactive data analytics structures built natively using front-end simulations. Tap and filter metrics representing portfolio analytics.
+            </p>
+        </div>
+
+        <!-- Dynamic Simulated Analytics Panel Container -->
+        <div class="bg-gray-950 text-white rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden border border-gray-800 mb-12">
+            
+            <!-- Dashboard Top Control Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-gray-800 pb-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">Active Data Feed Connected</span>
+                    </div>
+                    <h3 class="text-xl font-bold">Interactive Power BI Portfolio Simulator</h3>
+                    <p class="text-xs text-gray-400 mt-1">Md Alvee Islam's analytics tracking & project validation</p>
+                </div>
+                
+                <!-- Project Dashboard Selector Tabs -->
+                <div class="flex bg-gray-900 border border-gray-800 rounded-lg p-1 text-xs">
+                    <button id="projectTab1" onclick="switchDashboardTab('loan')" class="px-4 py-2 rounded-md font-bold transition-all bg-accentIndigo text-white">
+                        Bank Loan Analysis
+                    </button>
+                    <button id="projectTab2" onclick="switchDashboardTab('sales')" class="px-4 py-2 rounded-md font-bold transition-all text-gray-400 hover:text-white">
+                        E-commerce Sales
+                    </button>
+                </div>
+            </div>
+
+            <!-- Simulated Power BI Frame Workspace -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Dashboard Content / Analytics Visualizer -->
+                <div class="lg:col-span-8 space-y-8">
+                    
+                    <!-- KPI Counter Strips -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="metricStrips">
+                        <!-- Dynamic metrics generated based on tab -->
+                    </div>
+
+                    <!-- Interactive Chart Canvas Mockup -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 relative">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-mono text-gray-400 uppercase tracking-wider" id="chartLabel">Monthly Volume Distribution</span>
+                            <!-- Interactive Filter Trigger -->
+                            <select id="filterSelector" onchange="applyDataFilter()" class="bg-gray-950 border border-gray-800 text-xs text-gray-300 rounded px-3 py-1.5 focus:outline-none focus:border-accentTeal">
+                                <option value="all">Region: All Branches</option>
+                                <option value="dhaka">Dhaka Hub</option>
+                                <option value="chittagong">Chittagong Port</option>
+                                <option value="sylhet">Sylhet Segment</option>
+                            </select>
+                        </div>
+
+                        <!-- Bar Graph Mockup constructed cleanly using custom CSS divs for flawless responsivity -->
+                        <div class="h-60 flex items-end justify-between gap-2 pt-4" id="chartBarsContainer">
+                            <!-- Dynamic Bars Go Here -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Project Specifications & Metadata Pane -->
+                <div class="lg:col-span-4 bg-gray-900/60 border border-gray-800/80 rounded-2xl p-6 space-y-6">
+                    <div>
+                        <span class="text-[10px] font-mono text-accentTeal uppercase tracking-widest block mb-1">PROJECT DETAILS</span>
+                        <h4 class="text-lg font-bold" id="panelProjTitle">Bank Loan Portfolio Analysis (Power BI)</h4>
+                        <p class="text-xs text-gray-400 mt-2 leading-relaxed" id="panelProjDesc">
+                            Built an interactive dashboard to track real-time performance metrics and key operational risk indicators. Analyzed Non-Performing Loans (NPL) and financial ratios to isolate inefficiencies and support data-driven decisions.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-800">
+                        <span class="text-[10px] font-mono text-accentTeal uppercase tracking-widest block mb-2">SYSTEM ARCHITECTURE</span>
+                        <div class="flex flex-wrap gap-2" id="panelProjTags">
+                            <!-- Dynamic Tags -->
+                        </div>
+                    </div>
+
+                    <!-- Performance Index Mock Dial -->
+                    <div class="pt-4 border-t border-gray-800 text-xs flex items-center justify-between">
+                        <div>
+                            <span class="text-gray-400 block">Performance Index</span>
+                            <span class="text-white font-mono font-bold" id="panelProjPerf">98.4% Efficiency</span>
+                        </div>
+                        <div class="h-8 w-8 rounded-full border-2 border-accentTeal/30 flex items-center justify-center relative">
+                            <span class="h-4 w-4 rounded-full bg-accentTeal animate-pulse"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Academic Research Column Focus (Static Grid Layout) -->
+        <div class="bg-white border border-gray-200/80 p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8">
+                <span class="text-xs font-bold text-accentIndigo bg-accentIndigo/10 px-3 py-1 rounded w-fit uppercase tracking-widest block mb-3">Academic Exploration</span>
+                <h3 class="text-xl font-extrabold text-charcoal">Research Domain: Business Analytics in Marketing & SCM</h3>
+                <p class="text-xs sm:text-sm text-gray-500 mt-3 leading-relaxed">
+                    Ongoing analytical exploration dedicated to optimizing supply chain transparency, inventory tracking analytics, and consumer behavior narratives in marketing frameworks. Deep mathematical investigations bridging qualitative metrics with logistics operations.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">Academic Research</span>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">Supply Chain Analytics</span>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full font-medium">Marketing Analytics</span>
+                </div>
+            </div>
+            <div class="lg:col-span-4 bg-gray-50 border border-gray-150 p-6 rounded-2xl flex flex-col justify-center text-center">
+                <span class="text-4xl text-accentIndigo block mb-2 font-black">100%</span>
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-bold block">Quantitative Integrity</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 7: BEYOND THE SCREEN (PERSONAL ANCHORS & HOBBIES) -->
+    <section id="beyond" class="py-24 px-6 max-w-7xl mx-auto border-b border-gray-200">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block mb-2">06 / Creative Discipline</span>
+            <h2 class="text-3xl font-extrabold tracking-tight uppercase">Beyond the Screen</h2>
+            <div class="h-1 w-12 bg-accentIndigo mx-auto mt-4"></div>
+            <p class="text-xs text-gray-400 leading-relaxed mt-4">
+                The absolute harmony of rigorous sports science and multi-instrument performance that sharpens real-time analysis capabilities.
+            </p>
+        </div>
+
+        <!-- Asymmetric Editorial Focus Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Martial Arts Focus -->
+            <div class="bg-white border border-gray-200 p-8 rounded-2xl hover:border-accentIndigo transition-all flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl text-accentIndigo mb-4"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3 class="text-lg font-bold text-charcoal mb-3">Martial Arts (Karate Black Belt - First Dan)</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Achieved the historic milestone of becoming the first student at East West University to reach this rank. Developed over years of rigorous Shotokan training under the Bangladesh Karate Federation, directly instilling the grit, mental discipline, and precision that approach analytical problem-solving and academic research.
+                    </p>
+                </div>
+                <div class="pt-4 mt-6 border-t border-gray-100">
+                    <span class="text-[10px] font-mono text-gray-400 block uppercase">Philosophy</span>
+                    <span class="text-xs font-bold text-charcoal">Grit, Respect, Focus</span>
+                </div>
+            </div>
+
+            <!-- Music Vocalist/Multi-Instrumentalist Focus -->
+            <div class="bg-white border border-gray-200 p-8 rounded-2xl hover:border-accentIndigo transition-all flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl text-accentIndigo mb-4"><i class="fa-solid fa-guitar"></i></div>
+                    <h3 class="text-lg font-bold text-charcoal mb-3">Music (Vocalist & Multi-Instrumentalist)</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Exploring rhythm, patterns, and harmony as a vocalist, guitarist, and violinist. This creative passion keeps perspective fresh and sharpens a unique narrative approach to data storytelling, enabling communication of highly complex structures through beautiful delivery.
+                    </p>
+                </div>
+                <div class="pt-4 mt-6 border-t border-gray-100">
+                    <span class="text-[10px] font-mono text-gray-400 block uppercase">Instruments</span>
+                    <span class="text-xs font-bold text-charcoal">Guitar, Violin, Vocal Range</span>
+                </div>
+            </div>
+
+            <!-- Creative & Digital Media Focus -->
+            <div class="bg-white border border-gray-200 p-8 rounded-2xl hover:border-accentIndigo transition-all flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl text-accentIndigo mb-4"><i class="fa-solid fa-photo-film"></i></div>
+                    <h3 class="text-lg font-bold text-charcoal mb-3">Creative & Digital Media</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Hands-on experience in video editing (post-production workflows, pacing, visual storytelling) and graphics design (branding assets and marketing collateral). Leverages strong visual literacy to design clear executive presentations and dashboards.
+                    </p>
+                </div>
+                <div class="pt-4 mt-6 border-t border-gray-100">
+                    <span class="text-[10px] font-mono text-gray-400 block uppercase">Tooling</span>
+                    <span class="text-xs font-bold text-charcoal">Premiere Pro, Illustrator, Figma</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT & CONNECT -->
+    <section id="contact" class="py-24 px-6 max-w-7xl mx-auto relative overflow-hidden">
+        
+        <!-- Large backdrop watermark element inside contact zone -->
+        <div class="absolute bottom-0 right-0 pointer-events-none select-none text-[20vw] font-black text-gray-200/25 tracking-tighter leading-none -z-10">
+            TALK
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Contact Info Details -->
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentIndigo block">07 / Network Entry</span>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Let's Connect</h2>
+                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-md">
+                    Reach out for strategic business analysis roles, research partnerships, data architecture reviews, or community collaboration opportunities.
+                </p>
+
+                <!-- Direct Connect Email Panel -->
+                <div class="p-6 bg-white border border-gray-200 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm max-w-lg">
+                    <div>
+                        <span class="text-[10px] font-mono text-gray-400 uppercase tracking-widest block">DIRECT EMAIL CHANNEL</span>
+                        <a href="mailto:alveeislam7@gmail.com" class="text-lg font-bold text-charcoal hover:text-accentIndigo transition-colors break-all">alveeislam7@gmail.com</a>
+                    </div>
+                    <a href="mailto:alveeislam7@gmail.com" class="bg-charcoal hover:bg-accentIndigo text-white py-3 px-6 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-md shrink-0">
+                        Draft Message <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Professional Anchors Row (Clean Brands) -->
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/alveeislam7" target="_blank" class="h-12 w-12 rounded-xl bg-white border border-gray-200/80 hover:border-accentIndigo text-charcoal hover:text-accentIndigo flex items-center justify-center transition-all shadow-sm">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/md-alvee-islam" target="_blank" class="h-12 w-12 rounded-xl bg-white border border-gray-200/80 hover:border-accentIndigo text-charcoal hover:text-accentIndigo flex items-center justify-center transition-all shadow-sm">
+                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/alveemeerza1/" target="_blank" class="h-12 w-12 rounded-xl bg-white border border-gray-200/80 hover:border-accentIndigo text-charcoal hover:text-accentIndigo flex items-center justify-center transition-all shadow-sm">
+                        <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual Graphic Box -->
+            <div class="lg:col-span-6 bg-white border border-gray-200 rounded-3xl p-8 shadow-md">
+                <h4 class="text-sm font-bold uppercase text-charcoal tracking-wider mb-4 border-b pb-4 border-gray-100">Send an instant hand-shake</h4>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] font-mono uppercase text-gray-400 mb-1">Your Name</label>
+                        <input id="contactName" type="text" placeholder="e.g. Director of Analytics" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs focus:outline-none focus:border-accentIndigo">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-mono uppercase text-gray-400 mb-1">Brief Proposal</label>
+                        <textarea id="contactMsg" rows="3" placeholder="I'd love to connect you with our strategy board..." class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs focus:outline-none focus:border-accentIndigo"></textarea>
+                    </div>
+                    <button onclick="handleInstantGreeting()" class="w-full bg-charcoal hover:bg-accentIndigo text-white py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all">
+                        Validate and Prepare Draft
+                    </button>
+                    <!-- Status Notification -->
+                    <div id="greetingStatus" class="hidden text-xs font-bold text-center mt-2"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-charcoal text-white/90 py-12 px-6 border-t border-gray-800 relative z-20 no-print">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-accentTeal block">Md Alvee Islam</span>
+            <span class="text-[10px] text-gray-400">Copyright © 2026. All business analytics, assets & creative portfolios preserved under digital records.</span>
+        </div>
+        
+        <div class="flex items-center gap-6 text-xs text-gray-400">
+            <a href="#home" class="hover:text-white transition-colors">Home</a>
+            <span>•</span>
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <span>•</span>
+            <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+            <span>•</span>
+            <a href="#contact" class="hover:text-white transition-colors">Connect</a>
+        </div>
+    </div>
+</footer>
+
+<!-- CUSTOM SCRIPTS -->
+<script>
+    // -------------------------------------------------------------
+    // INTERACTIVE REAL-TIME POWER BI SIMULATION PANEL
+    // -------------------------------------------------------------
+    
+    // Project specifications dataset to inject
+    const dataset = {
+        loan: {
+            title: "Bank Loan Portfolio Analysis (Power BI)",
+            desc: "Built an interactive dashboard to track real-time performance metrics and key operational risk indicators. Analyzed Non-Performing Loans (NPL) and financial ratios to isolate inefficiencies and support data-driven decisions.",
+            tags: ["Power BI", "Financial Analytics", "Risk Management", "Data Modeling", "SQL"],
+            efficiency: "98.4% Efficiency Gain",
+            chartLabel: "Loan Status Distribution ($M)",
+            regions: {
+                all: [95, 80, 45, 12, 60],
+                dhaka: [120, 95, 60, 5, 80],
+                chittagong: [85, 70, 30, 18, 50],
+                sylhet: [60, 50, 20, 8, 30]
+            },
+            metrics: [
+                { val: "$12.4M", title: "Total Portfolio" },
+                { val: "3.2%", title: "NPL Ratio" },
+                { val: "94.8%", title: "Recovery Rate" },
+                { val: "+14.2%", title: "YTD Change" }
+            ],
+            bars: ["Current", "Delinquent", "Grace Period", "Defaulted", "Written Off"]
+        },
+        sales: {
+            title: "E-commerce Sales Analysis (Excel)",
+            desc: "Developed a dynamic dashboard using pivot tables and charts to track daily order fulfillments. Analyzed sales trends, product performance, and revenue patterns to support performance tracking and reporting.",
+            tags: ["Advanced Excel", "Pivot Tables", "Sales Operations", "Trend Analysis", "Reporting"],
+            efficiency: "94.2% Prediction Accuracy",
+            chartLabel: "Revenue Patterns by Category ($K)",
+            regions: {
+                all: [40, 85, 110, 65, 45],
+                dhaka: [50, 110, 140, 80, 60],
+                chittagong: [35, 75, 90, 55, 35],
+                sylhet: [25, 45, 60, 35, 20]
+            },
+            metrics: [
+                { val: "$420K", title: "Total Sales Rev." },
+                { val: "8.4K", title: "Orders Shipped" },
+                { val: "2.8%", title: "Return Rate" },
+                { val: "$48.5", title: "Avg. Basket Size" }
+            ],
+            bars: ["Electronics", "Apparel", "Home Goods", "Beauty", "Sports"]
+        }
+    };
+
+    let activeTab = "loan";
+
+    // Setup function to initialize active simulated project elements on boot
+    function switchDashboardTab(tabId) {
+        activeTab = tabId;
+        
+        // Update selection states on tabs UI
+        const tab1 = document.getElementById("projectTab1");
+        const tab2 = document.getElementById("projectTab2");
+        
+        if (tabId === "loan") {
+            tab1.className = "px-4 py-2 rounded-md font-bold transition-all bg-accentIndigo text-white";
+            tab2.className = "px-4 py-2 rounded-md font-bold transition-all text-gray-400 hover:text-white";
+        } else {
+            tab2.className = "px-4 py-2 rounded-md font-bold transition-all bg-accentIndigo text-white";
+            tab1.className = "px-4 py-2 rounded-md font-bold transition-all text-gray-400 hover:text-white";
+        }
+
+        // Apply metadata info updates to the right side spec block
+        const data = dataset[tabId];
+        document.getElementById("panelProjTitle").innerText = data.title;
+        document.getElementById("panelProjDesc").innerText = data.desc;
+        document.getElementById("panelProjPerf").innerText = data.efficiency;
+        document.getElementById("chartLabel").innerText = data.chartLabel;
+        
+        // Populate Tags layout
+        const tagContainer = document.getElementById("panelProjTags");
+        tagContainer.innerHTML = "";
+        data.tags.forEach(tag => {
+            const span = document.createElement("span");
+            span.className = "text-[10px] bg-gray-800 text-accentTeal px-2.5 py-1 rounded font-bold uppercase tracking-wider";
+            span.innerText = tag;
+            tagContainer.appendChild(span);
+        });
+
+        // Repopulate KPIs layout strips
+        const metricContainer = document.getElementById("metricStrips");
+        metricContainer.innerHTML = "";
+        data.metrics.forEach(metric => {
+            const block = document.createElement("div");
+            block.className = "p-4 bg-gray-900 border border-gray-800 rounded-xl";
+            block.innerHTML = `
+                <span class="block text-xl sm:text-2xl font-black text-white font-mono">${metric.val}</span>
+                <span class="text-[9px] uppercase tracking-wider text-gray-400 block mt-0.5">${metric.title}</span>
+            `;
+            metricContainer.appendChild(block);
+        });
+
+        // Trigger chart rendering
+        applyDataFilter();
+    }
+
+    // Interactive rendering of simulated Power BI bar chart elements
+    function applyDataFilter() {
+        const selectedRegion = document.getElementById("filterSelector").value;
+        const currentData = dataset[activeTab];
+        
+        // Fetch values sequence based on selected branch
+        let values = currentData.regions[selectedRegion] || currentData.regions['all'];
+        
+        // Build beautiful graphic items representation dynamically
+        const barsContainer = document.getElementById("chartBarsContainer");
+        barsContainer.innerHTML = "";
+
+        // Establish relative dynamic bounding limits
+        const maxVal = Math.max(...values);
+        
+        currentData.bars.forEach((barLabel, idx) => {
+            const percentageValue = (values[idx] / maxVal) * 100;
+            
+            const outerCol = document.createElement("div");
+            outerCol.className = "flex-1 flex flex-col items-center h-full justify-end group cursor-pointer";
+            
+            outerCol.innerHTML = `
+                <!-- Metric Value Flag Bubble -->
+                <span class="text-[10px] font-mono font-bold text-accentTeal opacity-0 group-hover:opacity-100 transition-opacity mb-2 bg-gray-950 px-1.5 py-0.5 rounded border border-gray-800">
+                    ${values[idx]}
+                </span>
+                
+                <!-- Graphic Indicator Column Bar element with smooth gradient fill -->
+                <div style="height: ${percentageValue}%;" class="w-full sm:w-8 bg-gradient-to-t from-accentIndigo to-accentTeal rounded-t hover:brightness-125 transition-all duration-500 shadow-md shadow-accentTeal/5 relative">
+                    <!-- High-tech inner grid design overlay detail inside active column bar -->
+                    <div class="absolute inset-0 bg-white/5 opacity-40"></div>
+                </div>
+                
+                <!-- Grid Label bottom layer alignment -->
+                <span class="text-[9px] text-gray-400 font-medium tracking-wide mt-3 text-center block max-w-[60px] truncate">
+                    ${barLabel}
+                </span>
+            `;
+            barsContainer.appendChild(outerCol);
+        });
+    }
+
+    // -------------------------------------------------------------
+    // INTERACTIVE TONE.JS AMBIENT MUSIC SYNTHESIS (The Musician Track)
+    // -------------------------------------------------------------
+    let isSynthPlaying = false;
+    let synthLoopEvent = null;
+    let bassLoopEvent = null;
+    let synth, delay, filter;
+
+    function initSynth() {
+        // Build a highly sophisticated premium ambient synthesizer path natively
+        filter = new Tone.Filter({
+            frequency: 800,
+            type: "lowpass",
+            Q: 1
+        }).toDestination();
+
+        delay = new Tone.FeedbackDelay({
+            delayTime: "4n",
+            feedback: 0.6,
+            wet: 0.5
+        }).connect(filter);
+
+        synth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: "sine" },
+            envelope: {
+                attack: 0.8,
+                decay: 0.5,
+                sustain: 0.8,
+                release: 1.5
+            }
+        }).connect(delay);
+        
+        synth.volume.value = -12; // Lower baseline amplitude for pleasant backdrop mixing
+    }
+
+    async function toggleAmbientMusic() {
+        // Trigger browser audio initialization authorization rules
+        await Tone.start();
+
+        const btn = document.getElementById("synthTriggerBtn");
+        const icon = document.getElementById("synthPlayIcon");
+
+        if (!isSynthPlaying) {
+            if (!synth) initSynth();
+            
+            // Start the Tone.js transport scheduler
+            Tone.Transport.start();
+            isSynthPlaying = true;
+            
+            // Switch icons on triggers smoothly
+            btn.className = "bg-accentIndigo hover:bg-charcoal text-white rounded-full p-3 h-11 w-11 flex items-center justify-center transition-all shadow-md";
+            icon.className = "fa-solid fa-pause text-sm";
+
+            // Procedural composition notes looping sequence representing Alvee Meerza's musical patterns
+            const coreChords = [
+                ["C4", "E4", "G4", "B4"],  // CMaj7 (Calm, Analytics structural motif)
+                ["A3", "C4", "E4", "G4"],  // Am7 (Refined Academic motif)
+                ["F3", "A3", "C4", "E4"],  // FMaj7 (Community leader scale)
+                ["G3", "B3", "D4", "F4"]   // G7 (Karate resolve)
+            ];
+            
+            let chordIndex = 0;
+
+            synthLoopEvent = new Tone.Loop((time) => {
+                const notes = coreChords[chordIndex];
+                
+                // Arpeggiator dynamic pattern construction
+                notes.forEach((note, step) => {
+                    synth.triggerAttackRelease(note, "2n", time + step * 0.4);
+                });
+
+                // Cycle sequence index limits securely
+                chordIndex = (chordIndex + 1) % coreChords.length;
+            }, "4m").start(0);
+
+        } else {
+            // Halt sequence paths smoothly
+            Tone.Transport.stop();
+            if (synthLoopEvent) synthLoopEvent.dispose();
+            if (synth) synth.releaseAll();
+            
+            isSynthPlaying = false;
+            
+            btn.className = "bg-charcoal hover:bg-accentIndigo text-white rounded-full p-3 h-11 w-11 flex items-center justify-center transition-all shadow-md";
+            icon.className = "fa-solid fa-play text-sm ml-0.5";
+        }
+    }
+
+    // -------------------------------------------------------------
+    // INSTANT GREETING FORM VALIDATION & MAIL SETUP
+    // -------------------------------------------------------------
+    function handleInstantGreeting() {
+        const name = document.getElementById("contactName").value.trim();
+        const msg = document.getElementById("contactMsg").value.trim();
+        const status = document.getElementById("greetingStatus");
+
+        if (!name || !msg) {
+            status.innerText = "Please fill in all layout blocks.";
+            status.className = "text-rose-500 text-xs font-bold text-center mt-2 block";
+            return;
+        }
+
+        // Generate the formatted draft to launch native client window successfully
+        const subject = encodeURIComponent(`Strategic Contact: ${name}`);
+        const body = encodeURIComponent(`Hi Md Alvee Islam,\n\nI reviewed your professional portfolio and wanted to connect.\n\nMessage Detail:\n"${msg}"\n\nBest regards,\n${name}`);
+        const mailtoLink = `mailto:alveeislam7@gmail.com?subject=${subject}&body=${body}`;
+
+        status.innerText = "Validation Approved. Launching draft...";
+        status.className = "text-emerald-500 text-xs font-bold text-center mt-2 block";
+
+        // Dynamic execution delay trigger to allow viewer notification
+        setTimeout(() => {
+            window.location.href = mailtoLink;
+        }, 800);
+    }
+
+    // Global execution pipeline initializer
+    window.onload = function() {
+        switchDashboardTab("loan");
+    }
+</script>
 
 </body>
 </html>
